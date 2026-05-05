@@ -41,6 +41,13 @@ class Player extends Component
         }
     }
 
+    public function openVlc(): void
+    {
+        if ($this->streamUrl) {
+            $this->dispatch('openExternal', 'vlc://'.$this->streamUrl);
+        }
+    }
+
     public function render()
     {
         return view('livewire.player');

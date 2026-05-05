@@ -11,6 +11,7 @@ class Channel extends Model
         'name',
         'logo',
         'group',
+        'type',
         'stream_url',
         'is_active',
     ];
@@ -35,7 +36,7 @@ class Channel extends Model
 
     public function scopeByGroup(Builder $query, ?string $group): Builder
     {
-        if (empty($group) || $group === 'Todos') {
+        if (empty($group)) {
             return $query;
         }
 
